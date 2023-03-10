@@ -8,9 +8,11 @@
 import SwiftUI
 
 struct ContentView: View {
+    @StateObject var viewModel = PizzaViewModel()
+    
     var body: some View {
         TabView {
-            PizzaListView()
+            PizzaListView(viewModel: viewModel)
                 .tabItem {
                     Label("Pizza List", systemImage: "list.bullet")
                 }

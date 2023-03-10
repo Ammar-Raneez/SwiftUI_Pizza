@@ -7,16 +7,16 @@
 
 import Foundation
 
-struct Pizza: Identifiable {
-    let id = UUID()
+struct Pizza: Codable, Hashable {
     let imageName: String
     let name: String
     let ingredients: String
     let thumbnailName: String
+    let isFavorite: Bool?
     let type: PizzaType
 }
 
-enum PizzaType: String {
+enum PizzaType: String, Codable {
     case Meat = "meat"
     case Veg = "vegetarian"
 }
