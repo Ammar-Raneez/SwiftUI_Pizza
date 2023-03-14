@@ -25,14 +25,17 @@ struct PizzaDetailView: View {
                     .resizable()
                     .frame(height: 400)
                 
-                Form {
-                    Section {
-                        Text(selectedPizzaItem.ingredients ?? "")
-                            .multilineTextAlignment(.leading)
-                    } header: {
+                VStack(spacing: 20) {
+                    Text(selectedPizzaItem.name ?? "")
+                        .font(.title)
+                    VStack {                    
                         Text("Ingredients")
+                            .fontWeight(.semibold)
+                        Text(selectedPizzaItem.ingredients ?? "")
                     }
-                    
+                }
+
+                Form {
                     Toggle("Favorite", isOn: $isFavorite)
                 }
             }
