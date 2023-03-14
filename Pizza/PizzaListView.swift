@@ -23,9 +23,11 @@ struct PizzaListView: View {
             .pickerStyle(.segmented)
             List {
                 ForEach(viewModel.filterByType(type: pickedType), id: \.self) { pizza in
+                    
+                // JSON data from network store
 //                ForEach(NetworkStore.shared.getPizzas(forType: PizzaType(rawValue: pickedType)), id: \.self) { pizza in
                     NavigationLink {
-                        PizzaDetailView()
+                        PizzaDetailView(selectedPizzaItem: pizza, viewModel: viewModel)
                     } label: {
                         HStack(spacing: 20) {
                             Image(pizza.thumbnailName ?? "")
